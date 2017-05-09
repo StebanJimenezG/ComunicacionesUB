@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  fecha_publicacion: 2017-05-08 12:09:43
+  descripcion: MyText
+  id_type_fs: 1
+
+two:
+  nombre: MyText
+  fecha_publicacion: 2017-05-08 12:09:43
+  descripcion: MyText
+  id_type_fs: 1
