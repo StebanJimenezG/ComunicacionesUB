@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @committee.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @committee.descripcion %>
+</p>
+
+<p>
+  <strong>Baner:</strong>
+  <%= @committee.baner %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @committee.logo %>
+</p>
+
+<p>
+  <strong>Id activity:</strong>
+  <%= @committee.id_activity %>
+</p>
+
+<p>
+  <strong>Id member:</strong>
+  <%= @committee.id_member %>
+</p>
+
+<%= link_to 'Edit', edit_committee_path(@committee) %> |
+<%= link_to 'Back', committees_path %>

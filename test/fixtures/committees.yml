@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  descripcion: MyText
+  baner: 
+  logo: 
+  id_activity: 1
+  id_member: 1
+
+two:
+  nombre: MyText
+  descripcion: MyText
+  baner: 
+  logo: 
+  id_activity: 1
+  id_member: 1
