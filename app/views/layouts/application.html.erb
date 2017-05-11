@@ -15,8 +15,7 @@
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <div class="navbar-header page-scroll">        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button>
         <%= image_tag('logo.png', title: 'Logo', :width => "230px", :height => "70px" ) %>
@@ -40,10 +39,6 @@
           <li><%= link_to "Practicas E",root_path  %></li>
           <li><%= link_to "Exito Estudiantil",root_path  %></li>
           <li><%= link_to "Internacionalización",root_path  %></li>
-
-
-
-
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -52,10 +47,18 @@
   </nav>
 
 </head>
-
+<br><br><br><br><br><br><br><br>
 <body>
-<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col -align-center">
 <%= yield %>
+    </div>
 
+  </div><!--/row-->
+  <footer>
+    <p>&copy; Facultad de Ingenieria</p>
+  </footer>
+</div>
 </body>
 </html>

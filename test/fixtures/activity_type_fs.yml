@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_activity: 1
+  id_type_f: 1
+
+two:
+  id_activity: 1
+  id_type_f: 1

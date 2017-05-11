@@ -19,18 +19,12 @@
     <%= f.label :descripcion %><br>
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
-    <%= f.label :baner %><br>
-    <%= f.text_field :baner %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
-  </div>
-  <div class="field">
-    <%= f.label :id_activity %><br>
-    <%= f.number_field :id_activity %>
-  </div>
+    <div class="field">
+      Baner:<%=f.file_field :baner %>
+    </div>
+   <div class="field">
+      Logo:<%=f.file_field :logo %>
+    </div>
   <div class="field">
     <%= f.label :id_member %><br>
     <%= f.number_field :id_member %>

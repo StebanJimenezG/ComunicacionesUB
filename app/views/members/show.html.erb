@@ -20,10 +20,9 @@
   <%= @member.descripcion %>
 </p>
 
-<p>
-  <strong>Foto:</strong>
-  <%= @member.foto %>
-</p>
+<p><div class="field">
+  <%= image_tag @member.foto.url(:thumb)  %>
+</div>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activity_type_fs
   get 'home/index'
   resources :members
   resources :committees

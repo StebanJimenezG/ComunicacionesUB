@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508171423) do
+ActiveRecord::Schema.define(version: 20170511180516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,27 +23,43 @@ ActiveRecord::Schema.define(version: 20170508171423) do
     t.integer  "id_type_fs"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "id_committee"
+  end
+
+  create_table "activity_type_fs", force: :cascade do |t|
+    t.integer  "id_activity"
+    t.integer  "id_type_f"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "committees", force: :cascade do |t|
     t.text     "nombre"
     t.text     "descripcion"
-    t.binary   "baner"
-    t.binary   "logo"
-    t.integer  "id_activity"
     t.integer  "id_member"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "baner_file_name"
+    t.string   "baner_content_type"
+    t.integer  "baner_file_size"
+    t.datetime "baner_updated_at"
   end
 
   create_table "members", force: :cascade do |t|
     t.text     "nombre"
     t.text     "correo"
-    t.integer  "telefono"
+    t.decimal  "telefono"
     t.text     "descripcion"
-    t.binary   "foto"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
   end
 
   create_table "type_fs", force: :cascade do |t|

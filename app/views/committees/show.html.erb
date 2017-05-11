@@ -12,17 +12,18 @@
 
 <p>
   <strong>Baner:</strong>
-  <%= @committee.baner %>
+<div class="field">
+  <%= image_tag @committee.baner.url(:thumb)  %>
+
+</div>
 </p>
 
 <p>
   <strong>Logo:</strong>
-  <%= @committee.logo %>
-</p>
+<div class="field">
+  <%= image_tag @committee.logo.url(:thumb)  %>
 
-<p>
-  <strong>Id activity:</strong>
-  <%= @committee.id_activity %>
+</div>
 </p>
 
 <p>

@@ -69,6 +69,6 @@ class CommitteesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def committee_params
-      params.require(:committee).permit(:nombre, :descripcion, :baner, :logo, :id_activity, :id_member)
+      params.require(:committee).permit(:nombre, :descripcion, :baner, :logo, :id_member)
     end
 end
