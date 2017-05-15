@@ -1,33 +1,73 @@
 <p id="notice"><%= notice %></p>
+<!--
+<center>
 
-<h1>Listing Committees</h1>
+  <table width="800">
+  <tr><td>
+    <h3>Busqueda</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Baner</th>
-      <th>Logo</th>
-      <th>Miembro</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @committees.each do |committee| %>
-      <tr>
-        <td><%= committee.nombre %></td>
-        <td><%= committee.descripcion %></td>
-        <td><%= committee.id_member %></td>
-        <td><%= link_to 'Show', committee %></td>
-        <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
-        <td><%= link_to 'Destroy', committee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+   <%= form_tag "/search/create", method: 'get', remote: true, id:"search-form" do %>
+        <div>
+          <strong>Nombre: </strong><br><br><%= text_field_tag :keyword, nil, placeholder: 'nombre', :size => 20 %>
+          <%= content_tag :button,class:"btn btn-primary btn-xs" , type: :submit do%> Buscar <% end %>
+        </div>
     <% end %>
-  </tbody>
+
+  </td><td id="resultados">
+
+  </td></tr>
 </table>
+</center>
+-->
 
-<br>
+<div class="container">
+  <div class="jumbotron">
 
-<%= link_to 'New Committee', new_committee_path %>
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to "<span class='glyphicon glyphicon-star'></span> Nuevo Comité".html_safe,
+                    new_committee_path, class: 'btn btn-success btn-lg active'%>
+      </div>
+
+    <h2 align="center" class="titulo"><strong>Comités</strong></h2>
+    <hr>
+    <div align="center">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @committees.each do |committee| %>
+            <tr>
+              <td><%= image_tag committee.logo.url()%></td>
+              <td><h3><%= committee.nombre %></h3></td>
+              <td><h4><%= committee.descripcion %></h4></td>
+
+
+              <td><%= link_to 'Ver', committee,class:"btn btn-success btn-sm active" %></td>
+              <td><%= link_to 'Editar', edit_committee_path(committee), class:"btn btn-success btn-sm active"%></td>
+              <td><%= link_to 'Eliminar',committee, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %></td>
+
+
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

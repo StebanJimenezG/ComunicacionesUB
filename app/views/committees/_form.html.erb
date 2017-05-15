@@ -13,23 +13,27 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_area :nombre %>
+    <%= f.text_field :nombre,autofocus: true, class: 'form-control', :required => true %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
+    <%= f.text_area :descripcion, autofocus: true, class: 'form-control' %>
   </div>
+    <div class="jumbotron div-formulario nuevo">
+      <strong>Baner:<%=f.file_field :baner %></strong>
+    </div>
+   <div class="jumbotron div-formulario nuevo">
+     <strong>Logo:<%=f.file_field :logo %></strong>
+    </div>
+    <strong>Miembros del Comité</strong>
+    <%= fields_for(@committee_member) do |member|%>
+
     <div class="field">
-      Baner:<%=f.file_field :baner %>
+
+    <%= collection_select(:members, :id, @all_members, :id, :nombre, {}, {:multiple =>true })%>
     </div>
-   <div class="field">
-      Logo:<%=f.file_field :logo %>
-    </div>
-  <div class="field">
-    <%= f.label :id_member %><br>
-    <%= f.number_field :id_member %>
-  </div>
+        <%end%>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Guardar" %>
   </div>
 <% end %>

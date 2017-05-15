@@ -1,7 +1,7 @@
 class CreateMembers < ActiveRecord::Migration
   def change
     create_table :members do |t|
-      t.text :nombre
+      t.text :nombre , :null => false
       t.text :correo
       t.integer :telefono
       t.text :descripcion

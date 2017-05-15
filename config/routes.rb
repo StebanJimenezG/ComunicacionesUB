@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :activities
   resources :type_fs
   resources :type_files
+  get 'search/create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

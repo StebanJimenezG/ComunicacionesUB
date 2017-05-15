@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511180516) do
+ActiveRecord::Schema.define(version: 20170515043829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20170511180516) do
     t.string   "baner_content_type"
     t.integer  "baner_file_size"
     t.datetime "baner_updated_at"
+  end
+
+  create_table "membercommittees", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "committee_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "members", force: :cascade do |t|

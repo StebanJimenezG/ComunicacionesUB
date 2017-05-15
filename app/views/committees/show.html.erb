@@ -1,35 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="field">
+  <%= image_tag @committee.baner.url(:medium)  %>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @committee.nombre %>
-</p>
+</div>
+<div align="center">
+ <h2><strong>  <%= @committee.nombre %> </strong><hr></h2>
 
-<p>
-  <strong>Descripcion:</strong>
+</div>
+<table class="table table-hover">
+  <td>
+<div class="field">
+  <%= image_tag @committee.logo.url(:mini)  %>
+
+</div>
+  </td>
+  <td>
+
+  <h5><strong>Información:</strong>
   <%= @committee.descripcion %>
-</p>
+  </h5>
+  </td>
+</table>
+<div>
+<h5><strong>Miembros del Comité</strong>
 
-<p>
-  <strong>Baner:</strong>
-<div class="field">
-  <%= image_tag @committee.baner.url(:thumb)  %>
-
-</div>
-</p>
-
-<p>
-  <strong>Logo:</strong>
-<div class="field">
-  <%= image_tag @committee.logo.url(:thumb)  %>
-
-</div>
-</p>
-
-<p>
-  <strong>Id member:</strong>
   <%= @committee.id_member %>
-</p>
+</h5>
+</div>
+<center>
+<div  class="btn-group" role="group" aria-label="...">
+  <%= link_to "Editar Comité".html_safe,
+              edit_committee_path(@committee) , class: 'btn btn-success btn-lg active'%>
+</div>
+<div  class="btn-group" role="group" aria-label="...">
+  <%= link_to " Atras".html_safe,
+              committees_path , class: 'btn btn-success btn-lg active'%>
+</div>
 
-<%= link_to 'Edit', edit_committee_path(@committee) %> |
-<%= link_to 'Back', committees_path %>
+</center>

@@ -1,7 +1,7 @@
 class CreateCommittees < ActiveRecord::Migration
   def change
     create_table :committees do |t|
-      t.text :nombre
+      t.text :nombre , :null => false
       t.text :descripcion
       t.binary :baner
       t.binary :logo

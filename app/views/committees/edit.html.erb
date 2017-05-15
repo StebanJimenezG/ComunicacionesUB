@@ -1,6 +1,17 @@
-<h1>Editing Committee</h1>
+
+<h1 align="center">Editar Comité</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @committee %> |
-<%= link_to 'Back', committees_path %>
+
+<center>
+  <div  class="btn-group" role="group" aria-label="...">
+    <%= link_to "Mostrar Comité".html_safe,
+                @committee , class: 'btn btn-success btn-lg active'%>
+  </div>
+  <div  class="btn-group" role="group" aria-label="...">
+    <%= link_to " Atras".html_safe,
+                committees_path , class: 'btn btn-success btn-lg active'%>
+  </div>
+
+</center>
