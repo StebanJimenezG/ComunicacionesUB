@@ -1,0 +1,40 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+    </button>
+      <%= image_tag('logo.png', title: 'Logo', :width => "230px", :height => "70px" ) %>
+    </div>
+    <br><br>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav  nav-justified ">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+
+
+
+        <li  class="table-bordered"><%= link_to "<span class='glyphicon glyphicon-home'></span> Inicio".html_safe,root_path %></li>
+        <li  class="table-bordered"><%= link_to "<span class='glyphicon glyphicon-bullhorn'></span> Publicar".html_safe,
+                                                new_activity_path%> </li>
+
+        <li class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-globe'></span>Comités".html_safe,committees_path  %></li>
+        <li class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-user'></span>Contactos".html_safe,members_path  %></li>
+        <li  class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-envelope'></span>Contactanos".html_safe,contacts_path  %></li>
+        <% if user_signed_in? %>
+            <li class="table-bordered">
+              <%= link_to "Cerrar Sessión", destroy_user_session_path, method: :delete %>
+
+            <%else%>
+            <li class="table-bordered">
+            <%= link_to "Iniciar Sessión", new_user_session_path%>
+            </li>
+
+      <%end%>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

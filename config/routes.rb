@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   resources :comitemembers
   resources :contacts
-  resources :activity_type_fs
-  get 'home/index'
   resources :members
   resources :committees
   resources :activities
-  resources :type_fs
-  resources :type_files
+
+
   get 'search/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
