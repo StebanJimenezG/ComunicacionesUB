@@ -1,3 +1,5 @@
+
+<body>
 <%= form_for(@committee) do |f| %>
   <% if @committee.errors.any? %>
     <div id="error_explanation">
@@ -25,15 +27,30 @@
    <div class="jumbotron div-formulario nuevo">
      <strong>Logo:<%=f.file_field :logo %></strong>
     </div>
-    <strong>Miembros del Comité</strong>
-    <%= fields_for(@committee_member) do |member|%>
 
-    <div class="field">
+       <div align="center">
+      <%= link_to_add_association 'Añadir Integrante', f, :comitemembers,
+                                  'data-association-insertion-node' => "#comitemembers-member",
+                                  'data-association-insertion-method' => "append",
+                                  :wrap_object => Proc.new {|comitemember| comitemember.build_member; comitemember }%>
+      <hr/>
 
-    <%= collection_select(:members, :id, @all_members, :id, :nombre, {}, {:multiple =>true })%>
-    </div>
+      <fieldset id="comitemembers-member">
+
+<ol>
+        <%= f.fields_for :comitemembers do |comitemember| %>
+            <%= render partial: "comitemember_fields", locals: {f:comitemember} %>
         <%end%>
-  <div class="actions">
+
+</ol>
+      </fieldset>
+
+    </div>
+
+
+
+  <div  align="center" class="actions">
     <%= f.submit "Guardar" %>
   </div>
 <% end %>
+</body>

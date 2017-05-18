@@ -1,3 +1,4 @@
+<body>
 <%= form_for(@activity) do |f| %>
   <% if @activity.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +13,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_area :nombre %>
+    <%= f.label :Título %><br>
+    <%= f.text_field :nombre,autofocus: true, class: 'form-control', :required => true %>
   </div>
   <div class="field">
     <%= f.label :fecha_publicacion %><br>
-    <%= f.time_select :fecha_publicacion %>
+    <%= f.date_select :fecha_publicacion , :readonly => true %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
+    <%= f.text_area :descripcion, autofocus: true, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :id_type_fs %><br>
-    <%= f.number_field :id_type_fs %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+      <%= f.label :Comité %><br>
+      <%= f.collection_select :committee_id, Committee.order(:nombre), :id, :nombre, include_blank: true%>
+    </div>
+    <div class="jumbotron div-formulario nuevo">
+      <strong>Adjuntar:<%=f.file_field :doc %></strong>
+    </div>
+  <div align="center" class="actions">
+    <%= f.submit "Guardar" %>
   </div>
 <% end %>
+</body>

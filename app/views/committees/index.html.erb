@@ -1,3 +1,5 @@
+<body>
+
 <p id="notice"><%= notice %></p>
 <!--
 <center>
@@ -22,16 +24,14 @@
 
 <div class="container">
   <div class="jumbotron">
-
-      <div class="btn-group" role="group" aria-label="...">
+<p align="right">
         <%= link_to "<span class='glyphicon glyphicon-star'></span> Nuevo Comité".html_safe,
                     new_committee_path, class: 'btn btn-success btn-lg active'%>
-      </div>
-
+    </p>
     <h2 align="center" class="titulo"><strong>Comités</strong></h2>
     <hr>
     <div align="center">
-      <table class="table table-hover">
+      <table width="800" class="table table-hover">
         <thead>
         <tr>
           <th>Logo</th>
@@ -44,18 +44,34 @@
         <tbody>
         <% @committees.each do |committee| %>
             <tr>
-              <td><%= image_tag committee.logo.url()%></td>
+              <td><%= image_tag committee.logo.url(:mini)%></td>
               <td><h3><%= committee.nombre %></h3></td>
               <td><h4><%= committee.descripcion %></h4></td>
 
 
-              <td><%= link_to 'Ver', committee,class:"btn btn-success btn-sm active" %></td>
-              <td><%= link_to 'Editar', edit_committee_path(committee), class:"btn btn-success btn-sm active"%></td>
-              <td><%= link_to 'Eliminar',committee, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %></td>
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe,
+                            committee, class: 'btn btn-default btn-sm active'%>
+              </div>
 
+              </td>
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+                            edit_committee_path(committee), class: 'btn btn-warning btn-sm active'%>
+              </div>
+
+              </td>
+
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe,
+                            committee, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %>
+              </div>
+
+              </td>
 
             </tr>
-        <% end %>
+       <%end%>
+
         </tbody>
 
       </table>
@@ -68,6 +84,6 @@
 
 
 
-
+</body>
 
 

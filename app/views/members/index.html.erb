@@ -1,7 +1,12 @@
-
+<body>
 <p id="notice"><%= notice %></p>
-
-<h1>Miembros</h1>
+<div class="container">
+  <div class="jumbotron">
+    <p align="right">
+      <%= link_to "<span class=' glyphicon glyphicon-user'></span> Nuevo Participante".html_safe,
+                  new_member_path, class: 'btn btn-success btn-lg active'%>
+    </p>
+<h2 align="center">Integrantes de los Comités</h2><br>
 <table class="table table-hover">
   <thead >
     <tr>
@@ -22,9 +27,25 @@
         <td><%= member.telefono %></td>
         <td><%= member.descripcion %></td>
 
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <div class="btn-group" role="group" aria-label="...">
+          <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe,
+                      member, class: 'btn btn-default btn-sm active'%>
+        </div>
+
+        </td>
+        <td> <div class="btn-group" role="group" aria-label="...">
+          <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+                      edit_member_path(member), class: 'btn btn-warning btn-sm active'%>
+        </div>
+
+        </td>
+
+        <td> <div class="btn-group" role="group" aria-label="...">
+          <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe,
+                      member, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %>
+        </div>
+
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +53,7 @@
 
 <br>
 
-<%= link_to 'New Member', new_member_path %>
+  </div>
+</div>
+
+</body>

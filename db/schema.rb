@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515043829) do
+ActiveRecord::Schema.define(version: 20170518051112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20170515043829) do
     t.text     "nombre"
     t.time     "fecha_publicacion"
     t.text     "descripcion"
-    t.integer  "id_type_fs"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "id_committee"
+    t.string   "doc_file_name"
+    t.string   "doc_content_type"
+    t.integer  "doc_file_size"
+    t.datetime "doc_updated_at"
+    t.integer  "committee_id"
   end
 
   create_table "activity_type_fs", force: :cascade do |t|
@@ -33,10 +36,16 @@ ActiveRecord::Schema.define(version: 20170515043829) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "comitemembers", force: :cascade do |t|
+    t.integer  "committee_id"
+    t.integer  "member_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "committees", force: :cascade do |t|
     t.text     "nombre"
     t.text     "descripcion"
-    t.integer  "id_member"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "logo_file_name"
@@ -47,13 +56,14 @@ ActiveRecord::Schema.define(version: 20170515043829) do
     t.string   "baner_content_type"
     t.integer  "baner_file_size"
     t.datetime "baner_updated_at"
+    t.integer  "member_id"
   end
 
-  create_table "membercommittees", force: :cascade do |t|
-    t.integer  "member_id"
-    t.integer  "committee_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "contacts", force: :cascade do |t|
+    t.text     "email"
+    t.text     "mensaje"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "members", force: :cascade do |t|

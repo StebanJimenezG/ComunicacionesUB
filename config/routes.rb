@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+
+  resources :comitemembers
+  resources :contacts
   resources :activity_type_fs
   get 'home/index'
   resources :members
@@ -8,12 +12,11 @@ Rails.application.routes.draw do
   resources :type_files
   get 'search/create'
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'activities#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

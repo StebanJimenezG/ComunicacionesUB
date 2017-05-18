@@ -5,37 +5,31 @@ class CommitteesController < ApplicationController
   # GET /committees.json
   def index
     @committees = Committee.all
-    @members = Member.all
+
   end
 
   # GET /committees/1
   # GET /committees/1.json
   def show
+    @members = Member.all
+    @comitemember = Comitemember.all
   end
 
   # GET /committees/new
   def new
     @committee = Committee.new
-    @all_members = Member.all
-    @committee_member = @committee.membercommittees.build
+    @members = Member.all
   end
 
   # GET /committees/1/edit
   def edit
     @committee = Committee.new
-    @all_members = Member.all
-    @committee_member = @committee.membercommittees.build
   end
 
   # POST /committees
   # POST /committees.json
   def create
     @committee = Committee.new(committee_params)
-    params[:members][:id].each do |member|
-      if :member.empty?
-        @committee.membercommittees.build(:member_id => member)
-      end
-    end
     respond_to do |format|
       if @committee.save
         format.html { redirect_to @committee, notice: 'El comité fue creado.' }
@@ -79,6 +73,7 @@ class CommitteesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def committee_params
-      params.require(:committee).permit(:nombre, :descripcion, :baner, :logo, :member_id)
+      params.require(:committee).permit(:nombre, :descripcion, :baner, :logo, :comitemembers_attributes => [:id, :committee_id, :member_id, :_destroy,
+                                                                                                         :member_attributes => [:id, :nombre]] )
     end
 end

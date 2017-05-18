@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Comitemembers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Committee</th>
+      <th>Member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comitemembers.each do |comitemember| %>
+      <tr>
+        <td><%= comitemember.committee_id %></td>
+        <td><%= comitemember.member_id %></td>
+        <td><%= link_to 'Show', comitemember %></td>
+        <td><%= link_to 'Edit', edit_comitemember_path(comitemember) %></td>
+        <td><%= link_to 'Destroy', comitemember, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comitemember', new_comitemember_path %>

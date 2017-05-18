@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    @committees =Committee.all
   end
 
   # GET /activities/1
@@ -15,6 +16,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    @committee_options = Committee.all.map{ |u| [ u.nombre, u.id ] }
+    @committees =Committee.all
+
   end
 
   # GET /activities/1/edit
@@ -28,7 +32,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        format.html { redirect_to @activity, notice: 'La publicación fue creada' }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to @activity, notice: 'La publicación fue actualizada' }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
+      format.html { redirect_to activities_url, notice: 'Ha sido eliminada la publicación.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:nombre, :fecha_publicacion, :descripcion, :id_type_fs)
+      params.require(:activity).permit(:nombre, :fecha_publicacion, :descripcion, :doc, :committee_id)
     end
 end

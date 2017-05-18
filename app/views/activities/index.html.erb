@@ -1,33 +1,64 @@
+<body>
 <p id="notice"><%= notice %></p>
+<div class="container" >
+  <div class="jumbotron">
 
-<h1>Listing Activities</h1>
+    <div class="btn-group" role="group" aria-label="...">
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Fecha publicacion</th>
-      <th>Descripcion</th>
-      <th>Id type fs</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    </div>
+    <h2 align="center" class="titulo"><strong>Publicaciones</strong></h2>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.nombre %></td>
-        <td><%= activity.fecha_publicacion %></td>
-        <td><%= activity.descripcion %></td>
-        <td><%= activity.id_type_fs %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <P align="right"><%= link_to "<span class='glyphicon glyphicon-bullhorn'></span> Publicar".html_safe,
+                                 new_activity_path, class: 'btn btn-success btn-lg active'%> </P>
+    <div align="center">
+      <table class="table table-hover" width="800">
+        <thead>
+        <tr>
+          <th>Publicación</th>
+          <th>Descripción</th>
+          <th>Comité que publicó</th>
+          <th>Fecha de publicación </th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @activities.each do |activity| %>
+            <tr>
+              <td><strong><h4><%= activity.nombre %></h4></strong></td>
+
+              <td align="justify"><%= activity.descripcion %></td>
+
+              <td><strong><h4 align="justify"><%= activity.committee.nombre%></h4></strong></td>
+              <td><strong><h4 align="justify"><%= activity.created_at.to_date%></h4></strong></td>
+
+             <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe,
+                            activity, class: 'btn btn-default btn-sm active'%>
+              </div>
+
+             </td>
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+                            edit_activity_path(activity), class: 'btn btn-warning btn-sm active'%>
+              </div>
+
+              </td>
+
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe,
+                            activity, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %>
+              </div>
+
+              </td>
+               <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
 
 <br>
-
-<%= link_to 'New Activity', new_activity_path %>
+</body>

@@ -1,10 +1,11 @@
-<h1>Nuevo Comité</h1>
 
+<body>
+<div class="container" >
+  <div class="jumbotron">
+<h2 align="center">Nuevo Comité</h2>
+<p align="right"><%= link_to " Atras".html_safe,
+                             committees_path , class: 'btn btn-success btn-lg active'%>
 <%= render 'form' %>
+</p></div></div>
 
-<center>
-<div  class="btn-group" role="group" aria-label="...">
-<%= link_to " Atras".html_safe,
-            committees_path , class: 'btn btn-success btn-lg active'%>
-</div>
-</center>
+  </body>

@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-
-
 <head>
-  <title>UBosque</title>
+  <title>UB Facultad Ing</title>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -23,16 +20,23 @@
         </button>
         <%= image_tag('logo.png', title: 'Logo', :width => "230px", :height => "70px" ) %>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for
-      toggling -->
+      <br><br>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav  nav-justified ">
           <li class="hidden">
             <a href="#page-top"></a>
           </li>
-          <li><%= link_to "Inicio",root_path  %></li>
-           </ul>
+
+
+
+          <li  class="table-bordered"><%= link_to "<span class='glyphicon glyphicon-home'></span> Inicio".html_safe,root_path %></li>
+          <li  class="table-bordered"><%= link_to "<span class='glyphicon glyphicon-bullhorn'></span> Publicar".html_safe,
+                          new_activity_path%> </li>
+
+          <li class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-globe'></span>Comités".html_safe,committees_path  %></li>
+          <li class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-user'></span>Contactos".html_safe,members_path  %></li>
+          <li  class="table-bordered"><%= link_to "<span class=' glyphicon glyphicon-envelope'></span>Contactanos".html_safe,contacts_path  %></li>
+        </ul>
       </div>
       <!-- /.navbar-collapse -->
     </div>
@@ -49,13 +53,16 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<%= yield %>
-    </div>
 
+
+
+    </div>
   </div><!--/row-->
-  <footer>
-    <p>&copy; Facultad de Ingenieria</p>
-  </footer>
-</div>
+</div><br>
+<body>
+<%= yield %>
+<h5 align="center">&copy; Facultad de Ingeniería</h5>
+
 </body>
+
 </html>

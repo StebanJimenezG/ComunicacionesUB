@@ -1,5 +1,8 @@
+<div class="container">
+  <div class="jumbotron">
+<body>
 <div class="field">
-  <%= image_tag @committee.baner.url(:medium)  %>
+  <%= image_tag @committee.baner.url(:thumb)  %>
 
 </div>
 <div align="center">
@@ -21,9 +24,11 @@
   </td>
 </table>
 <div>
-<h5><strong>Miembros del Comité</strong>
+<h5><strong>Integrantes del Comité</strong>
+  <% @committee.comitemembers.each do |comite| %>
+<%= comite.member.nombre%>
+      <%end%>
 
-  <%= @committee.id_member %>
 </h5>
 </div>
 <center>
@@ -37,3 +42,4 @@
 </div>
 
 </center>
+</body></div></div>

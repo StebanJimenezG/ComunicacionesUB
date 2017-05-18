@@ -1,24 +1,42 @@
+<body>
 <p id="notice"><%= notice %></p>
+<div class="container" >
+  <div class="jumbotron">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @activity.nombre %>
-</p>
+    <h2 align="center" class="titulo"><strong><%= @activity.nombre %></strong></h2>
+    <hr>
+    <div  align="justify">
 
-<p>
-  <strong>Fecha publicacion:</strong>
-  <%= @activity.fecha_publicacion %>
-</p>
+      <p>
+        <strong>Fecha publicacion:</strong>
+        <%= @activity.fecha_publicacion %>
+      </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @activity.descripcion %>
-</p>
+      <p>
+        <strong>Descripcion:</strong>
+        <%= @activity.descripcion %>
+      </p>
 
-<p>
-  <strong>Id type fs:</strong>
-  <%= @activity.id_type_fs %>
-</p>
+      <div class="field">
+        <%= image_tag @activity.doc.url(:thumb)  %>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<center>
+  <div  class="btn-group" role="group" aria-label="...">
+    <%= link_to "Editar Publicación".html_safe,
+                edit_activity_path(@activity) , class: 'btn btn-success btn-lg active'%>
+  </div>
+  <div  class="btn-group" role="group" aria-label="...">
+    <%= link_to " Atras".html_safe,
+                activities_path , class: 'btn btn-success btn-lg active'%>
+  </div>
+
+</center>
+</body>

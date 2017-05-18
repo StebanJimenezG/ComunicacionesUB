@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails UBosque: development" uuid="85f5227e-467d-4a86-b309-4f79fb85b5f8">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>admin</user-name>
+      <user-password>df9bdf98df99df9edf9fdf9c</user-password>
+    </data-source>
+    <data-source name="Rails UBosque: production" uuid="02212dcd-05a4-4ab9-bfdc-fbb6f8ad4ed4">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>UBosque</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfffdfe8dfe5dff9dffbdfffdfefdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

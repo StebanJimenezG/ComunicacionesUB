@@ -1,7 +1,8 @@
 class Committee < ActiveRecord::Base
-  validates :nombre, :presence => true
-  has_many :membercommittees
-  has_many :members, :through => :membercommittees
+  has_many :activities
+  has_many :comitemembers
+  has_many :members, :through => :comitemembers
+  accepts_nested_attributes_for :comitemembers,reject_if: :all_blank,allow_destroy: true
 
   has_attached_file :logo, styles:{ medium:"1200x720", thumb:"800x600",mini:"150x150"}
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
