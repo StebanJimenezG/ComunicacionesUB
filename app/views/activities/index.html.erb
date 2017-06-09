@@ -10,14 +10,14 @@
 
     <P align="right"><%= link_to "<span class='glyphicon glyphicon-bullhorn'></span> Publicar".html_safe,
                                  new_activity_path, class: 'btn btn-success btn-lg active'%> </P>
-    <div align="center">
-      <table class="table table-hover" width="800">
+    <div class="table-responsive">
+      <table class="table table-hover" >
         <thead>
         <tr>
           <th>Publicación</th>
           <th>Descripción</th>
           <th>Comité que publicó</th>
-          <th>Fecha de publicación </th>
+
 
         </tr>
         </thead>
@@ -30,7 +30,7 @@
               <td align="justify"><%= activity.descripcion %></td>
 
               <td><strong><h4 align="justify"><%= activity.committee.nombre%></h4></strong></td>
-              <td><strong><h4 align="justify"><%= activity.created_at.to_date%></h4></strong></td>
+
 
              <td> <div class="btn-group" role="group" aria-label="...">
                 <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe,
